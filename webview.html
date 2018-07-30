@@ -98,7 +98,7 @@
       document.getElementById('postMessage').addEventListener('click', function() {
         console.log('invokeMiniProgramAPI postMessage')
         wx.miniProgram.postMessage({
-          data: {foo: 'bar', timeStamp: Date.now()},
+          data: "test string",
           complete: function(res) {
             console.log(res)
           }
