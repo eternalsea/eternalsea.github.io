@@ -11,7 +11,9 @@
     <button class="weui-btn weui-btn_primary" id="switchTab">switchTab</button>
     <button class="weui-btn weui-btn_primary" id="reLaunch">reLaunch</button>
     <button class="weui-btn weui-btn_primary" id="redirectTo">redirectTo</button>
-    <button class="weui-btn weui-btn_primary" id="postMessage">postMessage</button>
+    <button class="weui-btn weui-btn_primary" id="postMessageString">postMessageString</button>
+    <button class="weui-btn weui-btn_primary" id="postMessageNumber">postMessageNumber</button>
+    <button class="weui-btn weui-btn_primary" id="postMessageObject">postMessageObject</button>
     <button class="weui-btn weui-btn_primary" id="getEnv">getEnv</button>
     <button class="weui-btn weui-btn_primary" id="share">分享</button>
     <input type="text" value="/page/component/pages/map/map" style="width: 100%;border: 1px solid gray;height: 44px;" />
@@ -95,10 +97,28 @@
           }
         })
       });
-      document.getElementById('postMessage').addEventListener('click', function() {
+      document.getElementById('postMessageString').addEventListener('click', function() {
         console.log('invokeMiniProgramAPI postMessage')
         wx.miniProgram.postMessage({
-          data: "test string",
+          data: 'test string',
+          complete: function(res) {
+            console.log(res)
+          }
+        })
+      })
+      document.getElementById('postMessageNumber').addEventListener('click', function() {
+        console.log('invokeMiniProgramAPI postMessage')
+        wx.miniProgram.postMessage({
+          data: 123456.789,
+          complete: function(res) {
+            console.log(res)
+          }
+        })
+      })
+      document.getElementById('postMessageObject').addEventListener('click', function() {
+        console.log('invokeMiniProgramAPI postMessage')
+        wx.miniProgram.postMessage({
+          data: {foo: 'bar', timeStamp: Date.now()},
           complete: function(res) {
             console.log(res)
           }
