@@ -103,6 +103,7 @@
       document.getElementById('postMessageNULL').addEventListener('click', function() {
         console.log('invokeMiniProgramAPI postMessage')
         wx.miniProgram.postMessage({
+          data: undefine,
           complete: function(res) {
             console.log(res)
           }
