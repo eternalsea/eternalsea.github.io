@@ -12,6 +12,7 @@
     <button class="weui-btn weui-btn_primary" id="reLaunch">reLaunch</button>
     <button class="weui-btn weui-btn_primary" id="redirectTo">redirectTo</button>
     <button class="weui-btn weui-btn_primary" id="postMessageString">postMessageString</button>
+    <button class="weui-btn weui-btn_primary" id="postMessageJsonString">postMessageJsonString</button>
     <button class="weui-btn weui-btn_primary" id="postMessageNumber">postMessageNumber</button>
     <button class="weui-btn weui-btn_primary" id="postMessageObject">postMessageObject</button>
     <button class="weui-btn weui-btn_primary" id="getEnv">getEnv</button>
@@ -97,6 +98,9 @@
           }
         })
       });
+      
+      
+      
       document.getElementById('postMessageString').addEventListener('click', function() {
         console.log('invokeMiniProgramAPI postMessage')
         wx.miniProgram.postMessage({
@@ -106,6 +110,17 @@
           }
         })
       })
+     
+      document.getElementById('postMessageJsonString').addEventListener('click', function() {
+        console.log('invokeMiniProgramAPI postMessage')
+        wx.miniProgram.postMessage({
+          data: '{"foo":"barrr","timeStamp":1533272203627}',
+          complete: function(res) {
+            console.log(res)
+          }
+        })
+      })
+      
       document.getElementById('postMessageNumber').addEventListener('click', function() {
         console.log('invokeMiniProgramAPI postMessage')
         wx.miniProgram.postMessage({
